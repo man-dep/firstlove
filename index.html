@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Only For You ❤️</title>
 
-<!-- EMAILJS -->
+
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){
@@ -13,7 +13,7 @@
 })();
 </script>
 
-<!-- TRACKING -->
+
 <script>
 function track(event){
  fetch("https://api.countapi.xyz/hit/boss-proposal-final/"+event);
@@ -30,7 +30,10 @@ function sendEmail(event){
 </script>
 
 <style>
-*{box-sizing:border-box;}
+*{
+ box-sizing:border-box;
+}
+ 
 body{
  margin:0;
  min-height:100vh;
@@ -52,7 +55,7 @@ body{
     backdrop-filter: blur(5px); 
 }
 
-/* Name Reveal Screen */
+
 #name {
   background: 
         linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
@@ -61,7 +64,7 @@ body{
     backdrop-filter: blur(5px); 
 }
 
-/* Proposal/Ask Screen */
+
 #ask {
    background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -71,7 +74,7 @@ body{
 }
 
 
-/* Final Screen */
+
 #final {
   background: 
         linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -81,7 +84,7 @@ body{
 }
 
 
-/* CANDLE LIGHT */
+
 .candle{
   background: rgba(0,0,0,0.1);
  position:absolute;
@@ -110,7 +113,7 @@ body{
  50%{transform:translateX(-50%) scale(1.1);}
 }
 
-/* CARD */
+
 .card{
  width:100%;
  max-width:420px;
@@ -150,7 +153,7 @@ button{
 @keyframes beat{50%{transform:scale(1.3)}}
 @keyframes fade{from{opacity:0;transform:scale(.95)}}
 
-/* MUSIC DISK */
+
 .disk{
  width:150px;height:150px;border-radius:50%;
  background:radial-gradient(circle,#444 30%,#000 60%);
@@ -179,7 +182,7 @@ button{
  <div class="flame"></div>
 </div>
 
-<!-- LOCK -->
+
 <div class="card" id="lock">
  <h1>🔒 Private</h1>
  <p>Only one heart belongs here.</p>
@@ -187,13 +190,12 @@ button{
  <button onclick="unlock()">Enter</button>
 </div>
 
-<!-- NAME -->
+
 <div class="card hidden" id="name">
  <div class="heart">❤️</div>
  <h1 id="type"></h1>
 </div>
 
-<!-- ASK -->
 <div class="card hidden" id="ask">
  <p style="font-size:18px;">
      I’m not good with big words, but I want to be honest.<br><br>
@@ -205,7 +207,7 @@ button{
   <button class="no" id="noBtn" onmouseover="moveNo()">No 🙈</button>
 </div>
 
-<!-- FINAL -->
+
 <div class="card hidden" id="final">
  <h1>Thank you for accept my proposal ❤️</h1>
  <div class="disk"></div>
@@ -219,27 +221,27 @@ button{
 
 
 <script>
-const PASSWORD = "forever"; // Secret word
-const HER_NAME = "Hey! my Girl"; // Change this to her name
+const PASSWORD = "forever"; 
+const HER_NAME = "Hey! my Girl"; 
 
 function unlock(){
     const input = document.getElementById("pass").value.trim().toLowerCase();
     if(input === PASSWORD.toLowerCase()){
         track("unlocked");
-        document.getElementById("lock").classList.add("hidden"); // hide lock card
-        document.getElementById("name").classList.remove("hidden"); // show name reveal card
-        document.body.style.background = "radial-gradient(circle at top,#1a0033,#000)"; // soft theme
+        document.getElementById("lock").classList.add("hidden"); 
+        document.getElementById("name").classList.remove("hidden"); 
+        document.body.style.background = "radial-gradient(circle at top,#1a0033,#000)"; 
         typeName();
     } else {
         alert("Oops! That's not the Code. Try again ❤️");
     }
 }
 
-// Type her name letter by letter
+
 function typeName(){
     const nameEl = document.getElementById("type");
     let i = 0;
-    nameEl.innerHTML = ""; // clear in case
+    nameEl.innerHTML = "";
     const t = setInterval(() => {
         nameEl.innerHTML += HER_NAME[i];
         i++;
@@ -248,7 +250,7 @@ function typeName(){
             setTimeout(() => {
                 document.getElementById("name").classList.add("hidden");
                 document.getElementById("ask").classList.remove("hidden");
-            }, 1000); // wait 1 second then show proposal
+            }, 1000); 
         }
     }, 120);
 }
@@ -273,6 +275,7 @@ function moveNo() {
 
 </body>
 </html>
+
 
 
 
